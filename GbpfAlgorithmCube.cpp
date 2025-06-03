@@ -616,10 +616,10 @@ std::vector<chrono::ChVectorDynamic<>> PartialShortcut(std::vector<chrono::ChVec
             }
 
             //2) check on the expanded cube
-            //double half = expandCube2(cfg, model, 0.05, 0.1);
-            //if (half < 0.01) { collisionFound = true;
-            //break;
-            //}
+            double half = expandCube2(cfg, model, 0.05, 0.1);
+            if (half < 0.01) { collisionFound = true;
+            break;
+            }
 
             // dample between cfg[i‑1] and cfg[i]
             if (i > 0) {
@@ -628,8 +628,8 @@ std::vector<chrono::ChVectorDynamic<>> PartialShortcut(std::vector<chrono::ChVec
                     double al = double(s) / nSteps;
                     auto mid = model->interpolate(newSegment[i - 1], cfg, al);
 
-                    if (model->isColliding(mid)/* ||
-                        expandCube2(mid, model, 0.05, 0.1) < 0.01*/)
+                    if (model->isColliding(mid) ||
+                        expandCube2(mid, model, 0.05, 0.1) < 0.01)
                     {
                         collisionFound = true;
                         break;
