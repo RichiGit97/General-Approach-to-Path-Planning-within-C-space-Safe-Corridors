@@ -89,14 +89,13 @@
 #include "ChRobot_6dof_free.h"
 #include "ChRobot_6dof_CAD_free.h"
 #include "ChRobot_free.h"
-
-
+#include "GbpfAlgorithmCuboid.h"
 
 using namespace chrono;
 using namespace chrono::irrlicht;
 using namespace irr;
-constexpr bool write_mode = false;
-constexpr bool write_mode2 = false;
+constexpr bool write_mode = true;
+constexpr bool write_mode2 = true;
 constexpr bool write3 = true;
 
 ChCollisionSystem::Type collision_type = ChCollisionSystem::Type::BULLET;
@@ -302,20 +301,18 @@ int main(int argc, char* argv[]) {
 
     if (write_mode) {
         ///////////////////////////// SEARCH ALGORITHM /////////////////////////////
-        optim_path = GoalBiasedProbabilisticFoamCubeConnect(startPos, goalPos, &planModel, sys, 0.001, max_iter);
+        optim_path = GoalBiasedProbabilisticFoamCuboidConnect(startPos, goalPos, &planModel, sys, /*0.01*/0.01, max_iter);
 
         std::cout << "Foam size: " << optim_path.size() << std::endl;
 
-        reducedpath = shortcutOptimize(optim_path, &planModel, 100, 50, 1.0);
+        reducedpath = shortcutOptimize(optim_path, &planModel, 100, 100, 1.0); //0.5
         std::cout << "Reduced path size: " << reducedpath.size() << std::endl;
 
-        optimized_path = PartialShortcut(reducedpath/*optim_path*/, &planModel, 500);
+        optimized_path = PartialShortcut(reducedpath/*optim_path*/, &planModel, 700);
         std::cout << "Optimized path size: " << optimized_path.size() << std::endl;
 
-        auto final_channel_path = BuildChannelCubes(optimized_path, &planModel, sys, 0.01, 0.5, startPos, goalPos);
-        SaveFoamToJson(final_channel_path, "optimized_channel_cubes_data_partial_shortcut.json");
-
-
+        auto final_channel_path = BuildChannelCuboids(optimized_path, &planModel, sys, 0.01, 0.2/*, startPos, goalPos*/);
+        SaveCuboidsFoamToJson(final_channel_path, "optimized_channel_cubes_data_partial_shortcut.json");
 
         std::ofstream file("optimized_path.json");
         ChArchiveOutJSON archive(file);

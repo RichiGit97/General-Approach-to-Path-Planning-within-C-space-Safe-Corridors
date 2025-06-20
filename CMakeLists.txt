@@ -155,7 +155,8 @@ add_executable(my_demo
                        CAD_export_coll/coll.h CAD_export_coll/coll.cpp                  #this for env 3 with no compenetration between coll shape
                        ChRobot_6dof_CAD_free.h ChRobot_6dof_CAD_free.cpp
                        ChRobot_free.h ChRobot_free.cpp
-                       ChRobot_6dof_free.h ChRobot_6dof_free.cpp)
+                       ChRobot_6dof_free.h ChRobot_6dof_free.cpp
+                       GbpfAlgorithmCuboid.h GbpfAlgorithmCuboid.cpp)
 #--------------------------------------------------------------
 # Set properties for your executable target
 # 
