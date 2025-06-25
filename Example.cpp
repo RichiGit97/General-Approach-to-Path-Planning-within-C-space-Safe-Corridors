@@ -305,10 +305,10 @@ int main(int argc, char* argv[]) {
 
         std::cout << "Foam size: " << optim_path.size() << std::endl;
 
-        reducedpath = shortcutOptimize(optim_path, &planModel, 100, 100, 1.0); //0.5
+        reducedpath = shortcutOptimize(optim_path, &planModel, 50, 100, 1.0); //0.5
         std::cout << "Reduced path size: " << reducedpath.size() << std::endl;
 
-        optimized_path = PartialShortcut(reducedpath/*optim_path*/, &planModel, 700);
+        optimized_path = PartialShortcut(reducedpath/*optim_path*/, &planModel, 1000);
         std::cout << "Optimized path size: " << optimized_path.size() << std::endl;
 
         auto final_channel_path = BuildChannelCuboids(optimized_path, &planModel, sys, 0.01, 0.2/*, startPos, goalPos*/);
