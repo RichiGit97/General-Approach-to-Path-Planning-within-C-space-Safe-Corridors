@@ -294,49 +294,6 @@ namespace chrono
 		}
 
 
-		////////////////////////////////////////////// Attempt: maybe to eliminate ///////////////////////////////////////////////////////////////
-
-		//ChVectorDynamic<> ChPlanModel::ComputeForwardKinematics(/*const chrono::ChVectorDynamic<>& jointConfig*/ const std::vector<chrono::ChVectorDynamic<>>& optim_path) const {
-
-		//	
-		//	// Estrai i valori dei giunti dal vettore jointConfig
-		//	//double theta1 = jointConfig(0);  // Angolo del primo giunto
-		//	//double theta2 = jointConfig(1);  // Angolo del secondo giunto
-		//	//double z = jointConfig(2);       // Posizione del giunto prismatico
-
-		//	// Parametri del robot (lunghezze dei link)
-		//	double l1 = 2.0; // Lunghezza del primo link
-		//	double l2 = 2.0; // Lunghezza del secondo link
-
-		//	for (const auto& point : optim_path) {
-		//		double theta1 = point(0);
-		//		double theta2 = point(1);
-		//		double z = point(2);
-
-		//		double x = l1 * cos(theta1) + l2 * cos(theta1 + theta2);
-		//		double y = l1 * sin(theta1) + l2 * sin(theta1 + theta2);
-		//		double z_eff = z;
-		//		ChVectorDynamic<> C_position_iter(3);
-		//		C_position_iter << x, y, z_eff;
-		//		std::cout << "End effector position: " << C_position_iter << std::endl;
-		//		return C_position_iter;
-		//	}
-
-
-			//// Calcola la posizione dell'end-effector
-			//double x = l1 * cos(theta1) + l2 * cos(theta1 + theta2);
-			//double y = l1 * sin(theta1) + l2 * sin(theta1 + theta2);
-			//double z_eff = z;
-			//ChVectorDynamic<> C_position(3);
-			//C_position << x, y, z_eff;
-			//std::cout << "End effector position: " << C_position << std::endl;
-			//return C_position;
-			
-		//}
-
-
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		void ChPlanModel::reset()
 		{
