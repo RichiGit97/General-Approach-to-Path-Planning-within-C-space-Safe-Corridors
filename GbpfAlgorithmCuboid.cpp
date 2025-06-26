@@ -185,23 +185,23 @@ CuboidSize expandCuboidBinary(const ChVectorDynamic<>& center, ChPlanModel* mode
         s.neg[d] = find_extent(d, -1);   // edge −d
     }
     //////////////////////////////////////////////////////////////////// more samples reduce the speed of the algorithm and increse the number of iterations, but increase the robustness
-    static thread_local std::mt19937 rng(std::random_device{}());
-    std::uniform_real_distribution<double> dist01(0.0, 1.0);
-    const int maxSamples = 12;
-    for (int k = 0; k < maxSamples; ++k) {
-        ChVectorDynamic<> sample(n);
-        for (int d = 0; d < n; ++d) {
-            double low = center[d] - s.neg[d];
-            double high = center[d] + s.pos[d];
-            sample[d] = low + dist01(rng) * (high - low);
-        }
-        if (model->isColliding(sample)) {
-            // Reject whole cuboid: return zeros so caller can skip it.
-            s.neg.setZero();
-            s.pos.setZero();
-            return s;
-        }
-    }
+    //static thread_local std::mt19937 rng(std::random_device{}());
+    //std::uniform_real_distribution<double> dist01(0.0, 1.0);
+    //const int maxSamples = 12;
+    //for (int k = 0; k < maxSamples; ++k) {
+    //    ChVectorDynamic<> sample(n);
+    //    for (int d = 0; d < n; ++d) {
+    //        double low = center[d] - s.neg[d];
+    //        double high = center[d] + s.pos[d];
+    //        sample[d] = low + dist01(rng) * (high - low);
+    //    }
+    //    if (model->isColliding(sample)) {
+    //        // Reject whole cuboid: return zeros so caller can skip it.
+    //        s.neg.setZero();
+    //        s.pos.setZero();
+    //        return s;
+    //    }
+    //}
     //////////////////////////////////////
     return s;
 }

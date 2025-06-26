@@ -152,11 +152,11 @@ add_executable(my_demo
                        #CAD_export_400/400.h CAD_export_400/400.cpp
                        #CAD_export_400_2/400_2.h CAD_export_400_2/400_2.cpp             
                        #CAD_export_try/try.h CAD_export_try/try.cpp                     #this for blocks with new end effector
-                       CAD_export_coll/coll.h CAD_export_coll/coll.cpp                  #this for env 3 with no compenetration between coll shape
+                       #CAD_export_coll/coll.h CAD_export_coll/coll.cpp                  #this for env 3 with no compenetration between coll shape
                        ChRobot_6dof_CAD_free.h ChRobot_6dof_CAD_free.cpp
                        ChRobot_free.h ChRobot_free.cpp
                        ChRobot_6dof_free.h ChRobot_6dof_free.cpp
-                       #CAD_export_new/new_coll.h CAD_export_new/new_coll.cpp
+                       CAD_export_new/new_coll.h CAD_export_new/new_coll.cpp
                        GbpfAlgorithmCuboid.h GbpfAlgorithmCuboid.cpp)
 #--------------------------------------------------------------
 # Set properties for your executable target
