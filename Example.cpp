@@ -904,23 +904,23 @@ int main(int argc, char* argv[]) {
     ////////////////////////////////////////
     std::vector<ChVectorDynamic<>>  optim_path;
     std::vector<ChVectorDynamic<>>  reducedpath;
-    std::vector<ChVectorDynamic<>> optimized_path;
-    std::vector<ChVectorDynamic<>> optimized_path2;
+    std::vector<ChVectorDynamic<>>  optimized_path;
+    std::vector<ChVectorDynamic<>>  optimized_path2;
     std::vector<CubeNode> cube_foam;
     ///////////////////////////////////////////////////
     std::vector<ChVectorDynamic<>>  optim_path2;
     std::vector<ChVectorDynamic<>>  reducedpath2;
-    std::vector<ChVectorDynamic<>> optimized_path2_2;
+    std::vector<ChVectorDynamic<>>  optimized_path2_2;
     //std::vector<ChVectorDynamic<>> optimized_path2;
 
     std::vector<ChVectorDynamic<>>  optim_path3;
     std::vector<ChVectorDynamic<>>  reducedpath3;
-    std::vector<ChVectorDynamic<>> optimized_path3;
-    std::vector<ChVectorDynamic<>> optimized_path2_3;
+    std::vector<ChVectorDynamic<>>  optimized_path3;
+    std::vector<ChVectorDynamic<>>  optimized_path2_3;
 
     std::vector<ChVectorDynamic<>>  optim_path4;
     std::vector<ChVectorDynamic<>>  reducedpath4;
-    std::vector<ChVectorDynamic<>> optimized_path4;
+    std::vector<ChVectorDynamic<>>  optimized_path4;
     ///////////////////////////////////////////////////
     int max_iter1 = 200000;
 
@@ -935,7 +935,7 @@ int main(int argc, char* argv[]) {
         reducedpath = shortcutOptimize(optim_path, &planModel, 50, 50, 1.0);
         std::cout << "Reduced path size: " << reducedpath.size() << std::endl;
 
-        optimized_path = PartialShortcut(reducedpath/*optim_path*/, &planModel, 700);
+        optimized_path = PartialShortcut(reducedpath/*optim_path*/, &planModel, 250);
         std::cout << "Optimized path size: " << optimized_path.size() << std::endl;
 
         auto final_channel_path = BuildChannelCuboids(optimized_path, &planModel, sys, 0.01, 0.2);
