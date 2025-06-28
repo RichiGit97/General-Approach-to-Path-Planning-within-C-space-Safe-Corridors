@@ -187,7 +187,7 @@ CuboidSize expandCuboidBinary(const ChVectorDynamic<>& center, ChPlanModel* mode
     //////////////////////////////////////////////////////////////////// more samples reduce the speed of the algorithm and increse the number of iterations, but increase the robustness
     //static thread_local std::mt19937 rng(std::random_device{}());
     //std::uniform_real_distribution<double> dist01(0.0, 1.0);
-    //const int maxSamples = 12;
+    //const int maxSamples = 1;
     //for (int k = 0; k < maxSamples; ++k) {
     //    ChVectorDynamic<> sample(n);
     //    for (int d = 0; d < n; ++d) {
@@ -523,7 +523,7 @@ std::vector<ChVectorDynamic<>>GoalBiasedProbabilisticFoamCuboidConnect(const ChV
 
     const double halfC_try = /*0.01*/0.1;
     const double expandStep = 0.01/*0.001*/;
-    const double expandMax = 0.5;
+    const double expandMax = 0.3;  //0.5
     const double beta0 = 0.3/*0.1*/;
     const double beta_max = 1.0;
     const double sigma0 = 0.4; // 0.1
